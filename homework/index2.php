@@ -13,6 +13,7 @@
         table,th,td{
 border:1px solid black;
 border-spacing: 0px;
+background-color: grey;
  }
  th{
    font:bold;
@@ -27,49 +28,58 @@ border-spacing: 0px;
         
   
 <form action="" method="POST">
-<input type="radio" name="usertype" value="student">student</button>
-<input type="radio" name="usertype" value="teacher">teacher</button>
+<div class="social-links">
+  <h1>Please Select Teacher or Student </h1>
+<input type="radio" name="usertype" value="student">Student</button>
+<input type="radio" name="usertype" value="teacher">Teacher</button>
+<br><br><center>
+  <br>
+  <h1>Please Fill the Form</h1>
 <div class="Form-group">
-<label for="user">user</label>
-<input type="text" class="form-control" name="user" required></div>
+  <br>
+<label for="user">
+<input type="text" class="form-control" name="user" placeholder="Enter Your User Name" required></label></div>
 
 <div class="Form-group">
-<label for="name">name</label>
-<input type="text" class="form-control" name="name" required></div>
-
-
-<div class="Form-group">
-<label for="phone">phone</label>
-<input type="number" class="form-control" name="phone" required></div>
-
-<div class="Form-group">
-<label for="address">address</label>
-<input type="text" class="form-control" name="address" required></div>
-
-<div class="Form-group">
-<label for="email">email</label>
-<input type="email" class="form-control" name="email" required></div>
-
-<div class="Form-group">
-<label for="qualification">qualification</label>
-<input type="text" class="form-control" name="qualification" required></div>
-
-<div class="Form-group">
-<label for="experience">experience</label>
-<input type="text" class="form-control" name="experience" required></div>
+<label for="name"></label>
+<input type="text" class="form-control" name="name" placeholder="Enter Your Name " required></label></div>
 
 
 <div class="Form-group">
-<label for="about">about</label>
-<input type="text" class="form-control" name="about" required></div>
+<label for="phone">
+<input type="number" class="form-control" name="phone" placeholder="Enter Your Phone Number" required></label></div>
 
-<button type="submit">submit</button>
+<div class="Form-group">
+<label for="address">
+<input type="text" class="form-control" name="address" placeholder="User" required></label></div>
 
+<div class="Form-group">
+<label for="email">
+<input type="email" class="form-control" name="email" placeholder="Enter Your Email" required></label></div>
+
+<div class="Form-group">
+<label for="qualification">
+<textarea type="text" class="form-control" name="qualification" placeholder="Your Qualification" required></textarea></label></div>
+
+<div class="Form-group">
+<label for="experience">
+<extarea type="text" class="form-control" name="experience" placeholder="Your Experience" required></textarea></label></div>
+
+
+<div class="Form-group">
+<label for="about">
+<textarea type="text" class="form-control" name="about" placeholder="About You" required></textarea></label></div>
+
+<button class="button">submit</button>
+
+</center>
+</div>
 </form>
 
 
 
-
+<br><br><center>
+<h1>The data of the students are given below</h1>
 <?php 
 
 $conn = new mysqli('localhost','root','','blog')
@@ -114,18 +124,18 @@ $result = mysqli_query($conn,"SELECT * FROM student  ");
 
 
 <table >
-<caption>students</caption>
+<caption>Students Details</caption>
 <tr>
-<th>user</th>
-<th>name</th>
-<th>phone</th>
-<th>address</th>
-<th>email</th>
-<th>qualification</th>
-<th>experience</th>
-<th>about</th>
-<th>delete</th>
-<th>edit</th>
+<th>User Name</th>
+<th>Full Name</th>
+<th>Phone Number</th>
+<th>Address</th>
+<th>E-mail Address</th>
+<th>Qualification</th>
+<th>Experience</th>
+<th>About</th>
+<th>Delete</th>
+<th>Edit</th>
 </tr>
 <?php
 while ($row= mysqli_fetch_array($result)){
@@ -139,8 +149,8 @@ while ($row= mysqli_fetch_array($result)){
 <td><?php echo $row['qualification']; ?></td>
 <td><?php echo $row['experience']; ?></td>
 <td><?php echo $row['about']; ?></td>
-<td><a href="delete.php?id=<?php echo $row['id'] ?>">delete</a></td>
-<td><a href="edit.php?id=<?php echo $row['id'] ?>">edit</a></td>
+<td><a href="delete.php?id=<?php echo $row['id'] ?>"><button>Delete</button></a></td>
+<td><a href="edit.php?id=<?php echo $row['id'] ?>"><button>Edit</button></a></td>
 </tr>
 
 <?php
@@ -172,19 +182,20 @@ while ($row= mysqli_fetch_array($result)){
 <br>
 
 <div>
+<h1>The data of the Teachers are given below</h1>
 <table >
-<caption>teachers</caption>
+<caption>Teachers Details</caption>
 <tr>
-<th>user</th>
-<th>name</th>
-<th>phone</th>
-<th>address</th>
-<th>email</th>
-<th>qualification</th>
-<th>experience</th>
-<th>about</th>
-<th>delete</th>
-<th>edit</th>
+<th>User Name</th>
+<th>Full Name</th>
+<th>Phone Number</th>
+<th>Address</th>
+<th>E-mail Address</th>
+<th>Qualification</th>
+<th>Experience</th>
+<th>About</th>
+<th>Delete</th>
+<th>Edit</th>
 </tr>
 
 
@@ -202,8 +213,8 @@ while ($row= mysqli_fetch_array($result)){
 <td><?php echo $row['qualification']; ?></td>
 <td><?php echo $row['experience']; ?></td>
 <td><?php echo $row['about']; ?></td>
-<td><a href="delete2.php?id=<?php echo $row['id'] ?>">delete</a></td>
-<td><a href="edit2.php?id=<?php echo $row['id'] ?>">edit</a></td>
+<td><a href="delete2.php?id=<?php echo $row['id'] ?>"><button>Delete</button></a></td>
+<td><a href="edit2.php?id=<?php echo $row['id'] ?>"><button>Edit</button></a></td>
 
 </tr>
 <?php
@@ -226,8 +237,77 @@ while ($row= mysqli_fetch_array($result)){
 </div>
 
 
-
+</center>
 
 
 </body>
 </html>
+
+<style type="text/css">
+.social-links{
+   padding: 30px; 
+}
+
+.social-links input{
+    height: 40px;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.883);
+    border-radius: 3px;
+    display: inline-block;
+    border: 2px solid rgba(255, 255, 0, 0.897);
+    line-height: 28px;
+    text-align: center;
+    margin: 0 1px;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+}
+ .social-links input:hover{
+    background-color: transparent;
+}
+
+.social-links textarea{
+    height: 70px;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.883);
+    border-radius: 3px;
+    display: inline-block;
+    border: 2px solid rgba(255, 255, 0, 0.897);
+    line-height: 28px;
+    text-align: center;
+    margin: 0 1px;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+}
+ .social-links textarea:hover{
+    background-color: transparent;
+}
+
+.nav_button{
+    width: 30%;
+    height: 100%;
+    float: left;
+    padding-top: 8px;
+}
+
+.nav_button button{
+    width: 180px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid white;
+    border-bottom-right-radius: 10%;
+    color: #fff;
+}
+.nav_button :hover{
+    background: red;
+}
+
+.table th{
+    height: 40px;
+    width: 400px;
+   
+    
+}
+ .table th:hover{
+    background-color: transparent;
+}
+</style>
